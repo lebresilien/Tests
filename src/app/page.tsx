@@ -10,11 +10,11 @@ export default function Home() {
   
   return (
     <main className="flex min-h-screen flex-col items-center py-24">
-      <div className="z-50 w-[600px] max-w-5xl h-96 justify-end font-mono text-sm flex">
+      <div className="z-50 w-[400px] md:w-[600px] max-w-5xl h-96 justify-end font-mono text-sm flex">
         {!show ? 
           <div className="flex">
             <Input 
-              className="h-12 w-[400px] font-serif text-md bg-white rounded-l-full border border-gray-200 py-1.5 text-gray-900 ring-0 ring-inset ring-white placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-white font-light lg:text-xl sm:leading-6"
+              className="h-12 w-[260px] md:w-[400px] font-serif text-md bg-white rounded-l-full border border-gray-200 py-1.5 text-gray-900 ring-0 ring-inset ring-white placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-white font-light lg:text-xl sm:leading-6"
               placeholder="Rechercher"
               onClick={() => setShow(true)}
             />
@@ -24,12 +24,12 @@ export default function Home() {
           </div>
           :
           <div className="relative">
-            <div className="absolute mt-3 ml-3 start-0 flex items-center pointer-events-none">
+            <div className="absolute mt-4 ml-5 start-0 flex items-center pointer-events-none">
               <Icon name="magnifying-glass" className="h-5 w-5 text-black" />
             </div>
             <div className="flex">
-              <Input 
-                className="h-12 w-[460px] font-serif text-md bg-white rounded-l-full border border-gray-200 py-1.5 text-gray-900 ring-0 ring-inset ring-white placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-white font-light lg:text-xl sm:leading-6"
+              <Input
+                className="h-12 pl-14 pr-8 w-[300px] md:w-[460px] font-serif text-md bg-white rounded-l-full border border-gray-200 py-1.5 text-gray-900 ring-0 ring-inset ring-white placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-white font-light lg:text-xl sm:leading-6"
                 placeholder="Rechercher"
                 onBlur={() => setShow(false)}
                 autoFocus

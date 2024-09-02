@@ -1,4 +1,5 @@
 import { type SVGProps } from 'react'
+// @ts-ignore
 import { type IconName } from '@/icon-name'
 import { cn } from '@/lib/utils'
 

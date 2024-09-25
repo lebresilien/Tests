@@ -86,3 +86,22 @@
     @apply bg-background text-foreground;
   }
 }
+
+circle,backwards
+rect,
+line {
+  stroke-width: 10px;
+  stroke-linecap: round;
+  fill: transparent;
+}
+
+.backwards::after {
+  content: "Cancel";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotateX(180deg);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: white;
+}

@@ -105,3 +105,20 @@ line {
   -webkit-background-clip: text;
   color: white;
 }
+
+.border-dashed {
+  border-style: dashed;
+}
+.border-double {
+  border-style: double;
+}
+.border-none {
+  border-style: none;
+}
+.border-groove {
+  border-style: groove;
+}
+.border-outset {
+  border-style: outset;
+}
+

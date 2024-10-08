@@ -11,11 +11,9 @@ export default function Home() {
         <main className="flex min-h-screen flex-col items-center justify-center space-y-5">
             <motion.button
                 onClick={() => setHover(!hover)}
-                //onMouseOut={() => setHover(false)}
                 className="text-white bg-red-500 w-64 h-10 rounded-full"
                 animate={{
                     rotateX: hover ? 180 : 0,
-                    //opacity: hover ? 0 : 1
                     backgroundColor: hover ? '#cbd5e1' : ''
                 }}
                 transition={{
@@ -26,8 +24,6 @@ export default function Home() {
                     <span className="backwards"></span>
                 }
             </motion.button>
-
-           {/*  <Button onClick={() => setHover(!hover)}>Animate</Button> */} 
         </main>
     )
 }

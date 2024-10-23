@@ -3,6 +3,7 @@
 export type IconName =
   | "check-circled"
   | "cross-2"
+  | "info-circled"
   | "magnifying-glass"
   | "minus"
   | "plus"

@@ -2,6 +2,8 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import { cn } from "@/lib/utils";
+import { Icon } from "@/components/ui/icons";
 
 export default function Home() {
 
@@ -9,11 +11,22 @@ export default function Home() {
     const [isVisible, setIsVisible] = useState(false);
 
     return (
-        <main className="flex min-h-screen flex-col items-center justify-center space-y-5">
+        <main className="flex min-h-screen flex-col items-center justify-center space-y-10">
             <div className="flex items-start justify-end w-[400px] space-x-3">
-                {/* <motion.button
+                {/*<div className="w-full flex justify-end">
+                   <motion.div 
+                        className="bg-green-500 p-5 h-[50px] w-[50px]"
+                        animate={{
+                            height: isVisible ? 250 : 50
+                        }}
+                    ></motion.div>
+                </div>
+                <motion.button
                     onClick={() => setHover(false)}
-                    className="text-white bg-slate-200 w-[200px] h-10 rounded-full hidden"
+                    className={cn(
+                        "text-white bg-slate-200 w-[200px] h-10 rounded-full hidden",
+                        hover ? "block" : "none"
+                    )}
                     animate={{
                         display: hover ? "block" : "none"
                     }}
@@ -21,7 +34,7 @@ export default function Home() {
                         duration: 0
                     }}
                 >
-                    Cancel
+                    Cancele
                 </motion.button>
 
                 <motion.button
@@ -33,34 +46,59 @@ export default function Home() {
                 >
                     Delete
                 </motion.button>*/}
-            </div> 
+            </div>  
           
-            <motion.div
-                className="relative py-10 w-full max-w-sm rounded-lg bg-green-500"
-                animate={{
-                    
-                }}
+            <div
+                className="relative py-10 w-full max-w-sm rounded-lg"
             >
                 <motion.div
-                    className="absolute duration-[500ms] ease-in-out transition-all bg-red-700 w-full h-[275px] bottom-0 left-0 right-0 overflow-hidden"
+                    animate={{
+                        height: isVisible ? 295 : 0,
+                        display: isVisible ? 'block' : 'none'
+                    }}
+                    transition={{
+                        duration: .25
+                    }}
+                    className="absolute hidden flex flex-col space-y-5 bg-white w-full h-0 bottom-0 left-0 right-0 overflow-hidden shadow-2xl rounded-3xl px-3 py-5"
                 >
-                    <motion.div
-                        className="flex flex-col items-start gap-2 p-5"
+                    <div className="flex justify-between items-center mb-4">
+                        <span className="text-red-500">
+                            <Icon name={"info-circled"} className="h-8 w-8"/>
+                        </span>
+                        <span className="bg-gray-100 px-2 rounded-full text-black cursor-pointer" onClick={() => setIsVisible(false)}>
+                            <Icon name={"cross-2"} className="h-3 w-3"/>
+                        </span>
+                    </div>
+                    <span className="text-black font-bold text-sm">Are you sure ?</span>
+                    <p className="text-sm">This action cannot be undone. Once deleted, the file will be permanently removed from your system and cannot be recovered. Please confirm if you wish to proceed.</p>
+                </motion.div>
+                <div className={cn(
+                    "flex gap-2 relative z-[2] w-full space-x-3 px-3",
+                    isVisible ? "justify-between" : "justify-end"
+                )}>
+                    <motion.button 
+                        onClick={() => setIsVisible(!isVisible)}
+                        className={cn(
+                            "rounded-full bg-zinc-100 text-zinc-900 font-medium py-3 px-6 cursor-pointer w-1/2",
+                            isVisible ? "block" : "hidden"
+                        )}
                     >
-                        <motion.p className="text-sm text-slate-700 line-clamp-4">This action cannot be undone. Once deleted, the file will be permanently removed from your system and cannot be recovered. Please confirm if you wish to proceed.</motion.p>
-                    </motion.div> 
-                </motion.div>
-                <motion.div className="w-full flex items-center gap-2 relative z-[2]">
-                    <motion.button className="bg-zinc-100 text-zinc-900 font-medium py-3 px-6 w-full cursor-pointer" >Cancel</motion.button>
-                    <motion.button className="bg-red-500 text-white font-medium py-3 px-6 w-full cursor-pointer h-12 relative">
-                        <motion.div className="absolute inset-0 w-full h-full flex items-center justify-center">
-                            <span className="block w-16 text-center inset-0 shrink-0">Delete</span>
-                        </motion.div>
+                        Cancel
                     </motion.button>
-                </motion.div>
-            </motion.div>     
-             
-            <Button onClick={() => setIsVisible(!isVisible)}>Animate</Button>
+                    <motion.button 
+                        onClick={() => setIsVisible(!isVisible)}
+                        animate={{
+                            width: isVisible ? '50%' : '100%',
+                        }}
+                        transition={{
+                            duration: .5
+                        }}
+                        className="bg-red-500 text-white font-medium py-3 px-6 w-full cursor-pointer h-12 w-full rounded-full"
+                    >
+                       Delete
+                    </motion.button>
+                </div>
+            </div>   
         </main>
     )
 }

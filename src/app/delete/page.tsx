@@ -48,9 +48,7 @@ export default function Home() {
                 </motion.button>*/}
             </div>  
           
-            <div
-                className="relative py-10 w-full max-w-sm rounded-lg"
-            >
+            <div className="relative py-10 w-full max-w-sm rounded-lg">
                 <motion.div
                     animate={{
                         height: isVisible ? 295 : 0,

@@ -17,6 +17,9 @@ export default function Card() {
   );
 };
 
+const ROTATION_RANGE = 32.5;
+const HALF_ROTATION_RANGE = 32.5 / 2;
+
 const TiltCard = () => {
 
     const x = useMotionValue(0);
@@ -41,11 +44,11 @@ const TiltCard = () => {
         const width = rect.width;
         const height = rect.height;
 
-        const mouseX = e.clientX - rect.left;
-        const mouseY = e.clientY - rect.top;
+        const mouseX = (e.clientX - rect.left) * ROTATION_RANGE;
+        const mouseY = (e.clientY - rect.top) * ROTATION_RANGE;
 
-        const xPct = mouseY / height;
-        const yPct = mouseX / width;
+        const xPct = (mouseY / height - HALF_ROTATION_RANGE) * -1;
+        const yPct = mouseX / width - HALF_ROTATION_RANGE;
 
         x.set(xPct);
         y.set(yPct);

@@ -20,7 +20,7 @@ export default function Todo() {
                 onClick={() => setIsOpen(!isOpen)}
             > */}
                 <motion.div 
-                    layout 
+                    layout="size" 
                     className="parent"
                     data-isOpen={isOpen}
                 >
@@ -32,7 +32,7 @@ export default function Todo() {
                             <Icon name="check-circled" className="text-white" />
                             <span className="text-white">Todo</span>
                         </div>:
-                        <div className="flex flex-col space-y-5">
+                        <motion.div className="flex flex-col space-y-5">
                             <div 
                                 className="flex flex-col py-5 space-y-2 px-3 bg-white rounded-xl w-96 h-72" 
                             >
@@ -57,7 +57,7 @@ export default function Todo() {
                                     </motion.div>
                                 )}
                             </AnimatePresence>
-                        </div>
+                        </motion.div>
                     }
                 </motion.div>
            {/* </motion.div> */}
